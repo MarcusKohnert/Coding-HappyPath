@@ -7,6 +7,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\01_HappyPath\01_HappyPath.csproj" />
+    <ProjectReference Include="..\02_Exceptions\02_Exceptions.csproj" />
+    <ProjectReference Include="..\03_RoP\03_RoP.csproj" />
+    <ProjectReference Include="..\04_Glory\04_Glory.csproj" />
   </ItemGroup>
 
 </Project>
