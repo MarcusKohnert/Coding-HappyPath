@@ -17,17 +17,6 @@ namespace _04_Glory
             return Result.Success(result);
         }
 
-        public static Result<TResult> Bind<T, TResult>
-        (
-            this Result<T> a, 
-            Func<T, Result<TResult>> func
-        )
-        {
-            if (a.Failed) return Result.Failure<TResult>(a.Message);
-
-            return func(a.Value);
-        }
-
         public static Result<TResult> SelectMany<T, T2, TResult>
         (
             this Result<T> a, 
