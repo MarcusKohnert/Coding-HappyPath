@@ -13,17 +13,25 @@ namespace CodingNotHappyPath
             //(
             //    new _01_HappyPath
             //    .Workflow()
-            //    .PrintOrderNaively(1, "pdf")
+            //    .PrintOrderNaively(workingId, workingFormat)
             //    .ToString()
             //);
 
-            Console.WriteLine
-            (
-                new _04_Glory
-                .Workflow()
-                .PrintOrder(3, "pdf")
-                .Dump()
-            );
+            //Console.WriteLine
+            //(
+            //    new _02_Exceptions
+            //    .Workflow()
+            //    .PrintOrderNaively(-2, workingFormat)
+            //    .ToString()
+            //);
+
+            //Console.WriteLine
+            //(
+            //    new _04_Glory
+            //    .Workflow()
+            //    .PrintOrder(workingId, workingFormat)
+            //    .Dump()
+            //);
 
             Console.WriteLine("Done");
         }
