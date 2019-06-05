@@ -27,6 +27,14 @@ namespace CodingNotHappyPath
 
             //Console.WriteLine
             //(
+            //    new _03_RoP
+            //    .Workflow()
+            //    .PrintOrder(workingId, "csv")
+            //    .Dump()
+            //);
+
+            //Console.WriteLine
+            //(
             //    new _04_Glory
             //    .Workflow()
             //    .PrintOrder(workingId, workingFormat)
@@ -39,7 +47,12 @@ namespace CodingNotHappyPath
 
     public static class Extensions
     {
-        public static string Dump<T>(this _04_Glory.Result<T> r) => 
+        public static string Dump<T>(this _03_RoP.Result<T> r) => 
+            r.Succeeded
+          ? r.Value.ToString()
+          : r.Message.Message;
+
+        public static string Dump<T>(this _04_Glory.Result<T> r) =>
             r.Succeeded
           ? r.Value.ToString()
           : r.Message.Message;
