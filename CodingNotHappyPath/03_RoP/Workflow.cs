@@ -36,16 +36,22 @@
                     {
                         return Result.Failure<Document>(validationResult.Message);
                     }
-
-                    var selectionResult = this.printerSelection.GetPrinter(format);
-                    if (selectionResult.Failed)
+                    else
                     {
-                        return Result.Failure<Document>(selectionResult.Message);
-                    }
+                        var selectionResult = this.printerSelection.GetPrinter(format);
+                        if (selectionResult.Failed)
+                        {
+                            return Result.Failure<Document>(selectionResult.Message);
+                        }
+                        else
+                        {
+                            var printer = selectionResult.Value;
 
-                    var printer = selectionResult.Value;
+                            var printResult = printer.Print(validationResult.Value);
 
-                    return printer.Print(validationResult.Value);
+                            return printResult;
+                        }                        
+                    }                    
                 }
             }
         }
@@ -66,7 +72,9 @@
 
             var printer = selectionResult.Value;
 
-            return printer.Print(validationResult.Value);
+            var printResult = printer.Print(validationResult.Value);
+
+            return printResult;
         }
     }
 }
