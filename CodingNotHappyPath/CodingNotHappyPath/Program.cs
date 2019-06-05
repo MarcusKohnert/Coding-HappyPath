@@ -9,39 +9,51 @@ namespace CodingNotHappyPath
 
         static void Main(string[] args)
         {
-            //Console.WriteLine
-            //(
-            //    new _01_HappyPath
-            //    .Workflow()
-            //    .PrintOrderNaively(workingId, workingFormat)
-            //    .ToString()
-            //);
 
-            //Console.WriteLine
-            //(
-            //    new _02_Exceptions
-            //    .Workflow()
-            //    .PrintOrderNaively(-2, workingFormat)
-            //    .ToString()
-            //);
+        }
 
-            //Console.WriteLine
-            //(
-            //    new _03_RoP
-            //    .Workflow()
-            //    .PrintOrder(workingId, "csv")
-            //    .Dump()
-            //);
+        private static void _01_HappyPath()
+        {
+            Console.WriteLine
+            (
+                new _01_HappyPath
+                .Workflow()
+                .PrintOrderNaively(workingId, workingFormat)
+                .ToString()
+            );
+        }
 
-            //Console.WriteLine
-            //(
-            //    new _04_Glory
-            //    .Workflow()
-            //    .PrintOrder(workingId, workingFormat)
-            //    .Dump()
-            //);
+        private static void _02_Exceptions()
+        {
+            Console.WriteLine
+            (
+                new _02_Exceptions
+                .Workflow()
+                .PrintOrderNaively(-2, workingFormat)
+                .ToString()
+            );
+        }
 
-            Console.WriteLine("Done");
+        private static void _03_RoP()
+        {
+            Console.WriteLine
+            (
+                new _03_RoP
+                .Workflow()
+                .PrintOrder(workingId, "csv")
+                .Dump()
+            );
+        }
+
+        private static void _04_Glory()
+        {
+            Console.WriteLine
+            (
+                new _04_Glory
+                .Workflow()
+                .PrintOrder(workingId, workingFormat)
+                .Dump()
+            );
         }
     }
 
