@@ -9,7 +9,7 @@ namespace CodingNotHappyPath
 
         static void Main(string[] args)
         {
-            _04_Glory();
+            
         }
 
         private static void _01_HappyPath()

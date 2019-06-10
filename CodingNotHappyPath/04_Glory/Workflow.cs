@@ -20,7 +20,7 @@ namespace _04_Glory
         }
 
         public Result<Document> PrintOrder(int orderId, string format) =>
-            
+
             Result.Failure<Document>(new NotImplementedException());
     }
 }
