@@ -4,12 +4,12 @@ namespace CodingNotHappyPath
 {
     class Program
     {
-        static int workingId        = 1;
+        static int workingId        = 3;
         static string workingFormat = "pdf";
 
         static void Main(string[] args)
         {
-
+            _04_Glory();
         }
 
         private static void _01_HappyPath()

@@ -4,19 +4,6 @@ namespace _04_Glory
 {
     public static class ResultExtensions
     {
-        public static Result<TResult> Select<T, TResult>
-        (
-            this Result<T> source,
-            Func<T, TResult> func
-        )
-        {
-            if (source.Failed) return Result.Failure<TResult>(source.Message);
-
-            var result = func(source.Value);
-
-            return Result.Success(result);
-        }
-
         public static Result<TResult> SelectMany<T, T2, TResult>
         (
             this Result<T> a, 
@@ -26,16 +13,12 @@ namespace _04_Glory
         {
             if (a.Failed) return Result.Failure<TResult>(a.Message);
 
-            var result = func(a.Value);
+            var r1 = func(a.Value);
+            if (r1.Failed) return Result.Failure<TResult>(r1.Message);
 
-            if (result.Failed) return Result.Failure<TResult>(result.Message);
+            var r2 = select(a.Value, r1.Value);
 
-            return select(a.Value, result.Value).ToSuccess();
-        }
-
-        public static Result<T> ToSuccess<T>(this T value)
-        {
-            return Result.Success(value);
+            return Result.Success(r2);
         }
     }
 }
