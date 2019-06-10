@@ -6,12 +6,7 @@ namespace _03_RoP
     {
         public Result<TEntity> IsAuthorized<TRequirement, TEntity>(TRequirement requirement, TEntity entity)
         {
-            if (entity is Order && requirement is Read)
-            {
-                return Result.Success(entity);
-            }
-
-            return Result.Failure<TEntity>(new Unauthorized());
+            return Result.Failure<TEntity>(new NotImplementedException());
         }
     }
 

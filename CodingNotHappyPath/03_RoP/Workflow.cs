@@ -1,4 +1,6 @@
-﻿namespace _03_RoP
+﻿using System;
+
+namespace _03_RoP
 {
     public class Workflow
     {
@@ -17,43 +19,7 @@
 
         public Result<Document> PrintOrder(int orderId, string format)
         {
-            var orderResult = this.persistence.GetOrder(orderId);
-            if (orderResult.Failed)
-            {
-                return Result.Failure<Document>(orderResult.Message);
-            }
-            else
-            {
-                var authorizationResult = this.authority.IsAuthorized(Read.Instance, orderResult.Value);
-                if (authorizationResult.Failed)
-                {
-                    return Result.Failure<Document>(authorizationResult.Message);
-                }
-                else
-                {
-                    var validationResult = this.printValidation.IsValid(authorizationResult.Value);
-                    if (validationResult.Failed)
-                    {
-                        return Result.Failure<Document>(validationResult.Message);
-                    }
-                    else
-                    {
-                        var selectionResult = this.printerSelection.GetPrinter(format);
-                        if (selectionResult.Failed)
-                        {
-                            return Result.Failure<Document>(selectionResult.Message);
-                        }
-                        else
-                        {
-                            var printer = selectionResult.Value;
-
-                            var printResult = printer.Print(validationResult.Value);
-
-                            return printResult;
-                        }                        
-                    }                    
-                }
-            }
+            return Result.Failure<Document>(new NotImplementedException());
         }
 
         public Result<Document> PrintOrder2(int orderId, string format)
